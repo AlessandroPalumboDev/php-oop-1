@@ -10,7 +10,6 @@ class Movie{
     // definizione di un costruttore
     public function __construct(int $_anno){
         $this->anno = $_anno;
-        // $this->titolo = $_titolo;
     }
 
     // metodi getter e setter di titolo
@@ -28,7 +27,7 @@ class Movie{
     }
     public function setAnno(int $_anno){
         $this->anno=$_anno;
-        
+    
     }
 
     // metodi getter e setter di regista
@@ -39,7 +38,16 @@ class Movie{
         $this->regista=$_regista;
         
     }
-    
+
+}
+
+// funzione calcolo quanti anni fa
+function differenza($num){
+    if(!is_int($num)){
+        // eccezione in caso l'anno non fosse un numero intero
+        throw new Exception('deve essere un numero intero per poter calcolare quanti anni sono passati');
+    }
+    return 2024 - $num  . 'anni fa' . '<br/>';
     
 }
 
@@ -56,9 +64,26 @@ $avatar->setTitolo('Avatar');
 $avatar->setRegista('James Cameron');
 
 
-var_dump($matrix);
-var_dump($avatar);
 
+// STAMPO UN FILM
+var_dump($matrix);
+// gestione eccezione usando il getter
+try {
+    echo differenza($matrix->getAnno());
+} catch (Exception $error) {
+    echo $error->getMessage();
+}
+
+
+// STAMPO UN FILM
+var_dump($avatar);
+// gestione eccezione usando il getter
+try {
+    // echo differenza($avatar->getAnno());
+    echo differenza('ciao');
+} catch (Exception $error) {
+    echo $error->getMessage();
+}
 
 
 ?>
