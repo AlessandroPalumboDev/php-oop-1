@@ -8,10 +8,10 @@ class Movie{
     private string $regista;
 
     // definizione di un costruttore
-    // public function __construct(int $_anno, string $_titolo){
-    //     $this->anno = $_anno;
-    //     $this->titolo = $_titolo;
-    // }
+    public function __construct(int $_anno){
+        $this->anno = $_anno;
+        // $this->titolo = $_titolo;
+    }
 
     // metodi getter e setter di titolo
     public function getTitolo(){
@@ -45,16 +45,14 @@ class Movie{
 
 // oggetti istanziati
 
-$matrix = new Movie();
-// setto titolo, anno e regista
+$matrix = new Movie(1999);
+// setto titolo e regista
 $matrix->setTitolo('Matrix');
-$matrix->setAnno('1999');
 $matrix->setRegista('Andy e Larry Wachowski');
 
-$avatar = new Movie();
-// setto titolo, anno e regista
+$avatar = new Movie(2009);
+// setto titolo e regista
 $avatar->setTitolo('Avatar');
-$avatar->setAnno('2009');
 $avatar->setRegista('James Cameron');
 
 
