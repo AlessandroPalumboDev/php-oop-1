@@ -1,12 +1,12 @@
 <?php
 require_once __DIR__. '/models/Movie.php';
-// definizione della classe Movie
 
 // logica di creazione dati applicativo
 try {
     // oggetti istanziati
-    $movie1 = new Movie('Matrix');
-    $movie2 = new Movie('Avatar');
+    $attori = new Actor ();
+    $movie1 = new Movie('Matrix', $attori);
+    $movie2 = new Movie('Avatar', $attori);
 
 
     // setto registi
