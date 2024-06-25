@@ -112,11 +112,12 @@ try {
                     Anno di uscita: <?php echo $movie->getAnno(); ?>
                 </p>
                 <p>
-                    Genere: <?php echo $movie->getAnno(); ?>
+                    Regista: <?php echo $movie->getRegista(); ?>
                 </p>
                 <p>
-                    Regista: <?php echo $movie->getAnno(); ?>
+                    Genere: 
                 </p>
+                
 
             </div>
         </li>
