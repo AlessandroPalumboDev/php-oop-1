@@ -6,7 +6,7 @@ class Movie{
     private string $titolo;
     private int $anno;
     private string $regista;
-    private string $genere;
+    private array $genere = [];
 
     // definizione di un costruttore
     public function __construct(string $_titolo){
@@ -14,7 +14,7 @@ class Movie{
     }
 
     // metodi getter e setter di titolo
-    public function getTitolo(){
+    public function getTitolo():string{
         return $this->titolo;
     }
     public function setTitolo(string $_titolo):void{
@@ -23,7 +23,7 @@ class Movie{
     }
 
     // metodi getter e setter di anno
-    public function getAnno(){
+    public function getAnno():int{
         return $this->anno;
     }
     public function setAnno(int $_anno):void{
@@ -32,11 +32,10 @@ class Movie{
             throw new Exception("L' anno deve essere un numero intero");
         }
         $this->anno=$_anno;
-    
     }
 
     // metodi getter e setter di regista
-    public function getRegista(){
+    public function getRegista():string {
         return $this->regista;
     }
     public function setRegista(string $_regista):void{
@@ -44,10 +43,10 @@ class Movie{
         
     }
     // metodi getter e setter di genere
-    public function getGenere(){
+    public function getGenere(): array{
         return $this->genere;
     }
-    public function setgenere(string $_genere):void{
+    public function setgenere(array $_genere):void{
         $this->genere=$_genere;
         
     }
@@ -69,15 +68,18 @@ try {
     $movie1->setRegista('Andy e Larry Wachowski');
     $movie2->setRegista('James Cameron');
 
-    // stetto anni
+    // setto anni
     $movie1->setAnno(1999);
     $movie2->setAnno(2009);
 
+    // setto generi
+    $movie1->setGenere(['fantascienza', 'azione']);
+    $movie2->setGenere(['fantascienza', 'azione', 'avventura', 'fantastico']);
 
+    // array movies
     $movies_list = [$movie1, $movie2];
 
-    // var_dump($movie1);
-    // var_dump($movie2);
+
 } catch (Exception $error) {
     echo $error->getMessage();
 }
@@ -114,9 +116,19 @@ try {
                 <p>
                     Regista: <?php echo $movie->getRegista(); ?>
                 </p>
-                <p>
-                    Genere: 
-                </p>
+                
+                <span>
+                    Generi:
+                    <ul>
+                        <?php foreach($movie->getGenere() as $genere): ?>
+                            <li>
+                                <?php echo $genere; ?>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul> 
+                </span>
+                
+                
                 
 
             </div>
