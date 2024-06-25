@@ -29,7 +29,7 @@ class Movie{
     public function setAnno(int $_anno):void{
         if(!is_int($_anno)){
             // eccezione in caso l'anno non fosse un numero intero
-            throw new Exception("L' anno deve essere un numero intero per poter calcolare quanti anni sono passati");
+            throw new Exception("L' anno deve essere un numero intero");
         }
         $this->anno=$_anno;
     
@@ -99,7 +99,7 @@ try {
     <title>Movies</title>
 </head>
 <body>
-    <h1>Film</h1>
+    <h1>Movies</h1>
 
     <ul>
         <?php foreach($movies_list as $movie): ?>
